@@ -28,7 +28,7 @@ class AddHandler(Resource):
 class GetHandler(Resource):
 	def get(self):
 		data = request.get_json()
-		conn = mdb.connect('localhost','root','1105boty','restfulApi')
+		conn = mdb.connect('localhost','brunello','bonanni','sampledb')
 		cur = conn.cursor()
 		try:
 			sql = "SELECT * from `user` WHERE `user_id` = '%s'" % (data['user_id'])
