@@ -88,14 +88,15 @@ def get_masks():
     cur = conn.cursor()
 
     try:
-	sql = "SELECT * from `user` WHERE `user_id` = '%s'" % (data['user_id'])
-	cur.execute(sql)
-	user = cur.fetchone()
-        return jsonify(user)
+		sql = "SELECT * from `user` WHERE `user_id` = '%s'" % (data['user_id'])
+		cur.execute(sql)
+		user = cur.fetchone()
+        	#return jsonify(user)
 
     finally:
-	conn.close()
+		conn.close()
 
+    return "Success Masks"
 
 
 
