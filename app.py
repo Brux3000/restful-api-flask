@@ -27,16 +27,17 @@ class AddHandler(Resource):
 
 class GetHandler(Resource):
 	def get(self):
-		data = request.get_json()
-		conn = mdb.connect('localhost','brunello','bonanni','sampledb')
-		cur = conn.cursor()
-		try:
-			sql = "SELECT * from `user` WHERE `user_id` = '%s'" % (data['user_id'])
-			cur.execute(sql)
-			user = cur.fetchone()
-			return jsonify(user)
-		finally:
-			conn.close()
+		return "Prova di trasmissione"
+		#data = request.get_json()
+		#conn = mdb.connect('localhost','brunello','bonanni','sampledb')
+		#cur = conn.cursor()
+		#try:
+		###	sql = "SELECT * from `user` WHERE `user_id` = '%s'" % (data['user_id'])
+		#	cur.execute(sql)
+		##	user = cur.fetchone()
+		#	return jsonify(user)
+		#finally:
+		#	conn.close()
 
 
 class PutHandler(Resource):
