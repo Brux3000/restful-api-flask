@@ -7,6 +7,9 @@ api = Api(app)
 
 data = []
 
+@app.route("/")
+def hello():
+    return "Rest Full 20.1 BRUNELLO!"
 
 class AddHandler(Resource):
 	def post(self):
