@@ -3,7 +3,6 @@ from flask_restful import Resource, Api
 import MySQLdb as mdb
 
 app = Flask(__name__)
-
 api = Api(app)
 
 data = []
@@ -28,7 +27,7 @@ class AddHandler(Resource):
 
 class GetHandler(Resource):
 	def get(self):
-	    return "Prova di trasmissione"
+		return "Prova di trasmissione"
 		#data = request.get_json()
 		#conn = mdb.connect('localhost','brunello','bonanni','sampledb')
 		#cur = conn.cursor()
@@ -80,25 +79,8 @@ api.add_resource(PutHandler, "/api/put")
 api.add_resource(DelHandler, '/api/delete')
 
 
-@app.route('/masks', methods=['GET'])
-def get_masks():
-    #return "Prova di trasmissione"
-    data = request.get_json()
-    conn = mdb.connect('localhost','brunello','bonanni','sampledb')
-    cur = conn.cursor()
-
-    try:
-		sql = "SELECT * from `user` WHERE `user_id` = '%s'" % (data['user_id'])
-		cur.execute(sql)
-		user = cur.fetchone()
-        	#return jsonify(user)
-
-    finally:
-		conn.close()
-
-    return "Success Masks"
-
-
 
 if __name__ == '__main__':
 	app.run(debug=True)
+
+
