@@ -83,4 +83,4 @@ api.add_resource(DelHandler, '/api/delete')
 
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	app.run()
