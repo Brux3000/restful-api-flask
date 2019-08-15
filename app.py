@@ -11,7 +11,7 @@ data = []
 class AddHandler(Resource):
 	def post(self):
 		data = request.get_json()
-		conn = mdb.connect('localhost','root','1105boty','restfulApi')
+		conn = mdb.connect('localhost','brunello','bonanni','sampledb')
 		cur = conn.cursor()
 		sql = "INSERT INTO `user`(`user_id`,`username`,`password`,`email`) VALUES ('%s','%s','%s','%s')" % (data['user_id'],data['username'],data['password'],data['email'])
 		try:
