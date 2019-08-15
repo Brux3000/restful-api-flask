@@ -28,7 +28,7 @@ class AddHandler(Resource):
 
 class GetHandler(Resource):
 	def get(self):
-		#return "Prova di trasmissione"
+	    return "Prova di trasmissione"
 		#data = request.get_json()
 		#conn = mdb.connect('localhost','brunello','bonanni','sampledb')
 		#cur = conn.cursor()
