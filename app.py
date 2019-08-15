@@ -3,6 +3,7 @@ from flask_restful import Resource, Api
 import MySQLdb as mdb
 
 app = Flask(__name__)
+
 api = Api(app)
 
 data = []
@@ -78,7 +79,8 @@ api.add_resource(GetHandler, "/api/get")
 api.add_resource(PutHandler, "/api/put")
 api.add_resource(DelHandler, '/api/delete')
 
-@application.route('/masks', methods=['GET'])
+
+@app.route('/masks', methods=['GET'])
 def get_masks():
     #return "Prova di trasmissione"
     data = request.get_json()
