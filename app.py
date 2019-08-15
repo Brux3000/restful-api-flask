@@ -27,23 +27,22 @@ class AddHandler(Resource):
 
 class GetHandler(Resource):
 	def get(self):
-		return "Prova di trasmissione"
-		#data = request.get_json()
-		#conn = mdb.connect('localhost','brunello','bonanni','sampledb')
-		#cur = conn.cursor()
-		#try:
-		###	sql = "SELECT * from `user` WHERE `user_id` = '%s'" % (data['user_id'])
-		#	cur.execute(sql)
-		##	user = cur.fetchone()
-		#	return jsonify(user)
-		#finally:
-		#	conn.close()
+		data = request.get_json()
+		conn = mdb.connect('localhost','brunello','bonanni','sampledb')
+		cur = conn.cursor()
+		try:
+			sql = "SELECT * from `user` WHERE `user_id` = '%s'" % (data['user_id'])
+			cur.execute(sql)
+			user = cur.fetchone()
+			return jsonify(user)
+		finally:
+			conn.close()
 
 
 class PutHandler(Resource):
 	def put(self):
 		data = request.get_json()
-		conn = mdb.connect('localhost','root','1105boty','restfulApi')
+		conn = mdb.connect('localhost','brunello','bonanni','sampledb')
 		cur = conn.cursor()
 		try:
 			sql = "UPDATE user SET username = '%s' WHERE `user_id` = '%s'" % (data['username'],data['user_id'])
@@ -58,7 +57,7 @@ class PutHandler(Resource):
 class DelHandler(Resource):
 	def delete(self):
 		data = request.get_json()
-		conn = mdb.connect('localhost','root','1105boty','restfulApi')
+		conn = mdb.connect('localhost','brunello','bonanni','sampledb')
 		cur = conn.cursor()
 		try:
 			sql = "DELETE FROM `user` WHERE `user_id` = '%s'" % (data['user_id'])
@@ -82,5 +81,3 @@ api.add_resource(DelHandler, '/api/delete')
 
 if __name__ == '__main__':
 	app.run(debug=True)
-
-
