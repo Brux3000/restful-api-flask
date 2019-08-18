@@ -14,7 +14,7 @@ def hello():
 class AddHandler(Resource):
 	def post(self):
 		data = request.get_json()
-		conn = mdb.connect('172.17.0.13','brunello','bonanni','sampledb')
+		conn = mdb.connect('172.17.0.10','brunello','bonanni','sampledb')
 		cur = conn.cursor()
 		sql = "INSERT INTO `user`(`user_id`,`username`,`password`,`email`) VALUES ('%s','%s','%s','%s')" % (data['user_id'],data['username'],data['password'],data['email'])
 		try:
@@ -31,7 +31,7 @@ class AddHandler(Resource):
 class GetHandler(Resource):
 	def get(self):
 		data = request.get_json()
-		conn = mdb.connect('172.17.0.13','brunello','bonanni','sampledb')
+		conn = mdb.connect('172.17.0.10','brunello','bonanni','sampledb')
 		cur = conn.cursor()
 		try:
 			sql = "SELECT * from `user` WHERE `user_id` = '%s'" % (data['user_id'])
@@ -45,7 +45,7 @@ class GetHandler(Resource):
 class PutHandler(Resource):
 	def put(self):
 		data = request.get_json()
-		conn = mdb.connect('172.17.0.13','brunello','bonanni','sampledb')
+		conn = mdb.connect('172.17.0.10','brunello','bonanni','sampledb')
 		cur = conn.cursor()
 		try:
 			sql = "UPDATE user SET username = '%s' WHERE `user_id` = '%s'" % (data['username'],data['user_id'])
@@ -60,7 +60,7 @@ class PutHandler(Resource):
 class DelHandler(Resource):
 	def delete(self):
 		data = request.get_json()
-		conn = mdb.connect('172.17.0.13','brunello','bonanni','sampledb')
+		conn = mdb.connect('172.17.0.10','brunello','bonanni','sampledb')
 		cur = conn.cursor()
 		try:
 			sql = "DELETE FROM `user` WHERE `user_id` = '%s'" % (data['user_id'])
