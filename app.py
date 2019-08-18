@@ -7,7 +7,7 @@ api = Api(app)
 
 data = []
 
-@app.route("/")
+@app.route("/hello")
 def hello():
     return "Rest Full 20.1 BRUNELLO!"
 
